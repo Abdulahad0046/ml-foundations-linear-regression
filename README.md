@@ -22,3 +22,6 @@ The goal of this project is to understand and implement Linear Regression to pre
 - How a model learns patterns from data
 - How to visualize model predictions
 - How to structure and document a machine learning project
+
+## Model Evaluation and Performance Analysis
+- The linear regression model fits the dataset extremely well, as the MAE and RMSE values are nearly zero. This indicates that the model’s predictions closely match the actual values. This is expected because the dataset follows a perfect linear relationship. However, in real-world scenarios, data is noisy, and errors are typically higher.

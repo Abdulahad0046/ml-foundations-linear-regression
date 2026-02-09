@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 # ------------------------------
 # Step 1: create Dataset
@@ -53,6 +54,23 @@ plt.show()
 
 print("Slope(m):", model.coef_[0])
 print("Intercept (c):", model.intercept_)
+
+# ------------------------------
+# Step 7: Model Evaluation
+# ------------------------------
+
+# MAE: Average absolute error
+mae = mean_absolute_error(marks, predicted_marks)
+
+# MSE: Mean squared error
+mse = mean_squared_error(marks, predicted_marks)
+
+# RMSE: Root mean squared error
+rmse = mse ** 0.5
+
+print("MAE:", mae)
+print("MSE:", mse)
+print("RMSE:", rmse)
 
 # Overall Conclusion:
 
