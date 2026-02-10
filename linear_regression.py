@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.model_selection import train_test_split
 
 # ------------------------------
 # Step 1: create Dataset
@@ -23,25 +24,32 @@ plt.ylabel("Marks")
 plt.title("Study Hours vs marks")
 plt.show()
 
+# -------------------------------
+# Step 2.5: Train-Test split
+# -------------------------------
+
+x_train, x_test, y_train, y_test = train_test_split(hours, marks, test_size=0.2, random_state=42)
+
 # ------------------------------
 # Step 3: Train Linear Regression Model
 # -------------------------------
 
 model = LinearRegression()
-model.fit(hours, marks)
+model.fit(x_train, y_train)
 
 # ------------------------------
 # Step 4: Make Predictions
 # -------------------------------
 
-predicted_marks = model.predict(hours)
+y_prediction = model.predict(x_test)
 
 # ------------------------------    
 # Step 5: Plot regression line
 # ------------------------------
 
 plt.scatter(hours,marks, color='blue', label='Actual Data')
-plt.plot(hours, predicted_marks, color='red', label='regression Line')
+predicted_full = model.predict(hours)  # only for visualization
+plt.plot(hours, predicted_full, color='red', label='Regression Line')
 plt.xlabel("study hours")
 plt.ylabel("Marks")
 plt.title("Linear Regression result")
@@ -60,10 +68,10 @@ print("Intercept (c):", model.intercept_)
 # ------------------------------
 
 # MAE: Average absolute error
-mae = mean_absolute_error(marks, predicted_marks)
+mae = mean_absolute_error(y_test, y_prediction)
 
 # MSE: Mean squared error
-mse = mean_squared_error(marks, predicted_marks)
+mse = mean_squared_error(y_test, y_prediction)
 
 # RMSE: Root mean squared error
 rmse = mse ** 0.5
