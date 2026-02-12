@@ -42,3 +42,14 @@ In real-world scenarios, data usually contains noise and outliers, so error valu
 - Always evaluate models on unseen test data
 - Low error does not always mean a realistic model
 - Understanding data is as important as choosing the model
+
+## K-Nearest Neighbors (KNN)
+
+KNN is a distance-based classification algorithm that predicts a class by looking at the K nearest data points and using majority voting. It does not have a training phase and makes predictions at runtime.
+
+### Files Added
+- knn_classification.py
+
+### Metrics Used
+- Accuracy
+- Confusion Matrix
